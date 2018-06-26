@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>微博爬虫</title>
+    <style>
+	.return a{
+	    height:40px;
+	    width:140px;
+		background:url({{url_for('static',filename='index/index.jpg')}}) no-repeat;
+		display:block;
+		}
+	.but{
+        width:760px; margin:20px auto 0 auto; height:10px;
+        position:relative;
+        top:-50px;
+        left:300px;
+        }
+	.button {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: 16px/100% 'Microsoft yahei',Arial, Helvetica, sans-serif;
+        padding: .5em 2em .55em;
+        text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        -webkit-border-radius: .5em;
+        -moz-border-radius: .5em;
+        border-radius: .5em;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    }
+    .button:hover {
+        text-decoration: none;
+    }
+    .button:active {
+        position: relative;
+        top: 1px;
+    }
+    .white {
+        color: #606060;
+        border: solid 1px #b7b7b7;
+        background: #fff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+        background: -moz-linear-gradient(top,  #fff,  #ededed);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+    }
+    .white:hover {
+        background: #ededed;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+        background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+    }
+    .white:active {
+        color: #999;
+        background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+        background: -moz-linear-gradient(top,  #ededed,  #fff);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+    }
+	</style>
+</head>
+<body>
+    <div class="return"><a href="/index" ></a></div>
+    <div>
+    <form method="post" action="/pcwb">
+        <label><h3>搜索<font color="red">微博</font>信息</h3></label>
+        <label>输入要搜索的关键词</label>
+        <input type="text" name="keywd" value="{{keywd}}">&nbsp;
+        <label>输入要搜索页数&nbsp;</label>
+        <input type="text" name="pagemax" value="{{pagemax}}">
+        <br><br>
+         <label>输入模拟登陆微博号</label>
+        <input type="text" name="yourid" value="{{yourid}}">&nbsp;
+        <label>输入模拟登陆微博密码</label>
+        <input type="password" name="yourpwd" value="{{yourpwd}}">
+        <div class="but">
+            <input class="button white" type="submit" value="爬取" />
+        </div>
+        <textarea name="data" rows="40" cols="150">{{data}}</textarea>
+    </form>
+    </div>
+</body>
+</html>

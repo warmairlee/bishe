@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全部档案</title>
+    <style>
+    #contentbox{
+        width:1400px;
+        margin-left:auto;
+        margin-right:auto;
+    	}
+    #view{
+        width:402px;
+        height:243px;
+        border: 1px solid #000;
+        margin-top:20px;
+        margin-right:20px;
+        margin-left:20px;
+        float:left;
+    	}
+    #view_img{
+	    width:196px;
+	    height:240px;
+	    border: 1px solid #000;
+    	}
+    #view_img img{
+	    width:100%;
+	    height:100%;
+    	}
+    #name{
+        padding-left:2px;
+        width:200px;
+        height:30px;
+        position:relative;
+        left:200px;
+        top:-240px;
+        border-bottom: 1px solid #000000;
+        background-color: #000;
+		text-align:center;
+		font-size:22px;
+		font-weight:bold;
+		color:white;
+		font-family:楷体;
+    	}
+    .content{
+        padding-left:5px;
+        width:125px;
+        height:30px;
+        position:relative;
+        top:-18px;
+        left:75px;
+    	}
+    .des{
+		width:200px;
+        position:relative;
+        left:200px;
+        top:-240px;
+    	}
+	#sex{
+		background-color: #F0F0F0;
+		padding-left:2px;
+		width:200px;
+		height:30px;
+		position:relative;
+		left:200px;
+		top:-240px;
+		border-bottom: 1px solid #000000;
+		}
+	#birthday{
+		background-color: #F0F0F0;
+		padding-left:2px;
+		width:200px;
+		height:30px;
+		position:relative;
+		left:200px;
+		top:-240px;
+		border-bottom: 1px solid #000000;
+		}
+	.return a{
+	    height:40px;
+	    width:140px;
+		background:url({{url_for('static',filename='index/index.jpg')}}) no-repeat;
+		display:block;
+		}
+	#contentbox a:link,#contentbox a:visited{
+        color: #000;
+        text-decoration:none;
+    	}
+    #contentbox a:hover{
+        color: #F95B5D;
+        text-decoration:none;
+        font-weight:bold;
+    	}
+    .searchline{
+        margin-left:auto;
+        margin-right:auto;
+        width:850px;
+		font-family:楷体;
+		font-size:20px;
+		font-weight:bold;
+    }
+    .but{
+        width:100px; margin:20px auto 0 auto; height:10px;
+        position:relative;
+        top:-50px;
+        left:370px;
+        }
+	.button {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: 16px/100% 'Microsoft yahei',Arial, Helvetica, sans-serif;
+        padding: .5em 2em .55em;
+        text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        -webkit-border-radius: .5em;
+        -moz-border-radius: .5em;
+        border-radius: .5em;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    }
+    .button:hover {
+        text-decoration: none;
+    }
+    .button:active {
+        position: relative;
+        top: 1px;
+    }
+    .white {
+        color: #606060;
+        border: solid 1px #b7b7b7;
+        background: #fff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+        background: -moz-linear-gradient(top,  #fff,  #ededed);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+    }
+    .white:hover {
+        background: #ededed;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+        background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+    }
+    .white:active {
+        color: #999;
+        background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+        background: -moz-linear-gradient(top,  #ededed,  #fff);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+		
+    }
+	.linear{   
+    width:100%;
+	height:1000px;;
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=##08538A,endColorStr=#449BE3); /*IE*/   
+    background:-moz-linear-gradient(top,#08538A,#449BE3);/*火狐*/   
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#08538A), to(#449BE3));/*谷歌*/   
+    background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, #08538A),color-stop(1, #449BE3));/* Safari & Chrome*/  
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#08538A', endColorstr='#449BE3'); /*IE6 & IE7*/  
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='08538A', endColorstr='#449BE3')"; /* IE8 */  
+  
+}   
+    </style>
+</head>
+<body>
+    <div class="return"><a href="/index" ></a></div>
+    <br>
+       <form action="/search" method="POST">
+        <div class="searchline">
+            姓名：
+            <input type="text" name="keyname">
+            QQ：
+            <input type="text" name="keyQQ">
+            微博号：
+            <input type="text" name="keyweibo">
+            <div class="but">
+                <input class="button white" type="submit" value="搜索" />
+            </div>
+           </div>
+       </form>
+    <div id="contentbox">
+        {% for p in plist %}
+        <a href="{{url_for('more',num=p.num)}}">
+            <div id="view">
+                <div id="view_img"><img src="{{p.photo}}"></div>
+                <div id="name">
+                    {{p.name}}
+                </div>
+                <div id="sex">性别：
+                    <div class="content">{{p.sex}}</div>
+                </div>
+                <div id="birthday">生日：
+                    <div class="content">{{p.birthday}}</div>
+                </div>
+                <div class="des">
+                <textarea disabled="disabled" rows="7" style="height:140px; font-size:16px; background: #F0F0F0;color: #000; width:197px;">{{p.tip}}</textarea>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</body>
+</html>

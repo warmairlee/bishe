@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <style>
+	.content{
+		margin-left:auto;
+		margin-right:auto;
+		width:900px;
+		height:200px;
+		}
+	.but1 a{
+		position:relative;
+		left:0px;
+		top:0px;
+		height:50px;
+		width:360px;
+		background:url({{url_for('static',filename='index/but1.jpg')}}) no-repeat;
+		display:block;
+		}
+	.but2 a{
+		position:relative;
+		left:400px;
+		top:-50px;
+		height:50px;
+		width:250px;
+		background:url({{url_for('static',filename='index/but2.jpg')}}) no-repeat;
+		display:block;
+		}
+	.but3 a{
+		position:relative;
+		left:700px;
+		top:-100px;
+		height:50px;
+		width:200px;
+		background:url({{url_for('static',filename='index/but3.jpg')}}) no-repeat;
+		display:block;
+		}
+	.but4 a{
+		position:relative;
+		left:0px;
+		top:-50px;
+		height:50px;
+		width:300px;
+		background:url({{url_for('static',filename='index/but4.jpg')}}) no-repeat;
+		display:block;
+		}
+	.but5 a{
+		position:relative;
+		left:300px;
+		top:-100px;
+		height:50px;
+		width:300px;
+		background:url({{url_for('static',filename='index/but5.jpg')}}) no-repeat;
+		display:block;
+		}
+	.but6 a{
+		position:relative;
+		left:600px;
+		top:-155px;
+		height:50px;
+		width:350px;
+		background:url({{url_for('static',filename='index/but6.jpg')}}) no-repeat;
+		display:block;
+		}
+	.but7 a{
+		position:relative;
+		left:0px;
+		top:-100px;
+		height:50px;
+		width:350px;
+		background:url({{url_for('static',filename='index/but7.jpg')}}) no-repeat;
+		display:block;
+		}
+	.add a{
+		position:relative;
+		float:right;
+		float:bottom;
+		left:290px;
+		top:100px;
+		height:70px;
+		width:200px;
+		background:url({{url_for('static',filename='index/add.jpg')}}) no-repeat;
+		display:block;
+		}
+	.all a{
+		position:relative;
+		float:right;
+		float:bottom;
+		left:300px;
+		top:100px;
+		height:65px;
+		width:180px;
+		background:url({{url_for('static',filename='index/all.jpg')}}) no-repeat;
+		display:block;
+		}
+	</style>
+</head>
+<body>
+<br>
+<h1 style="text-align:center; font-family:KaiTi; font-size:50px"><font style="text-decoration:line-through;">没逼格的</font>爬虫程序</h1>
+<br>
+<div class="content">
+    <div class="but1"><a href="/pchtml"></a></div>
+    <div class="but2"><a href="/pchh"></a></div>
+    <div class="but3"><a href="/pcwb"></a></div>
+    <br>
+    <div class="but4"><a href="/pcbd"></a></div>
+    <div class="but5"><a href="/pcimg"></a></div>
+    <div class="but6"><a href="/pcwbuser"></a></div>
+    <br>
+    <div class="but7"><a href="/pcqq"></a></div>
+    <div class="all"><a href="/view"></a></div>
+    <div class="add"><a href="/add"></a></div>
+</div>
+</body>
+</html>

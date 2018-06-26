@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息</title>
+    <style>
+     #box{
+		position:relative;
+		top:-50px;
+        margin-left:auto;
+	    margin-right:auto;
+	    width:900px;
+	    height:760px;
+		text-align:center;
+	    background: url({{url_for('static',filename='index/bg.jpg')}}) no-repeat;
+	    background-size:100% 100%;
+	
+	}
+	#headp{
+		margin-top:-0px;
+        width:240px;
+        height:300px;
+        }
+    .returnindex a{
+	    height:40px;
+	    width:140px;
+		background:url({{url_for('static',filename='index/index.jpg')}}) no-repeat;
+		display:block;
+		}
+	.returnview a{
+        float:right;
+		float:bottom;
+	    height:65px;
+	    width:200px;
+		background:url({{url_for('static',filename='index/all.jpg')}}) no-repeat;
+		display:block;
+		}
+		.but{
+        margin-left:auto;
+        margin-right:auto;
+        position:relative;
+        width:50px;
+        height:40px;
+        top:-50px;
+        left:-50px;
+        }
+	.button {
+        display: inline-block;
+        outline: none;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        font: 16px/100% 'Microsoft yahei',Arial, Helvetica, sans-serif;
+        padding: .5em 2em .55em;
+        text-shadow: 0 1px 1px rgba(0,0,0,.3);
+        -webkit-border-radius: .5em;
+        -moz-border-radius: .5em;
+        border-radius: .5em;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    }
+    .button:hover {
+        text-decoration: none;
+    }
+    .button:active {
+        position: relative;
+        top: 1px;
+    }
+    .white {
+        color: #606060;
+        border: solid 1px #b7b7b7;
+        background: #fff;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+        background: -moz-linear-gradient(top,  #fff,  #ededed);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+    }
+    .white:hover {
+        background: #ededed;
+        background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+        background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+    }
+    .white:active {
+        color: #999;
+        background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+        background: -moz-linear-gradient(top,  #ededed,  #fff);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+    }
+    .blue {
+        color: #d9eef7;
+        border: solid 1px #0076a3;
+        background: #0095cd;
+        background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+        background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+    }
+    .blue:hover {
+        background: #007ead;
+        background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+        background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+    }
+    .blue:active {
+        color: #80bed6;
+        background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+        background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+        filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+    }
+    </style>
+</head>
+<body>
+    <div class="returnindex"><a href="/index" ></a></div>
+    <div id="box">
+    <div style=" position:relative;left:95px;top:60px;width:850px;height:630px;">
+        <form method="POST" action="{{url_for('change',num=person.num,oriphoto=person.photo[15:])}}" enctype="multipart/form-data">
+            <table width="728" height="577" >
+                <tbody>
+                    <tr>
+                        <td width="252" rowspan="8">
+                            <div id="headp"><img style="width:255px;height:319px;" src="{{person.photo}}"></div>
+                            <div style="border-top: 1px solid #000000;;margin-top:20px;text-align:center;"><input type="file" name="photo"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td  width="230" height="46"><font color="#5A5858">姓&nbsp;&nbsp;名：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="name" value="{{person.name}}"></td>
+                        <td  width="230" height="46"><font color="#5A5858">性&nbsp;&nbsp;别：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="sex" value="{{person.sex}}"></td>
+                    </tr>
+                    <tr>
+                        <td height="43"><font color="#5A5858">年&nbsp;&nbsp;龄：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="age" value="{{person.age}}"></td>
+                        <td height="43"><font color="#5A5858">生&nbsp;&nbsp;日：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="birthday" value="{{person.birthday}}"></td>
+                    </tr>
+                    <tr>
+                        <td height="45"><font color="#5A5858">微博号：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="weibo" value="{{person.weibo}}"></td>
+                        <td height="38"><font color="#5A5858">注册时间：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="wbregtime" value="{{person.wbregtime}}"></td>
+                    </tr>
+                    <tr>
+                        <td height="45"><font color="#5A5858">Q&nbsp;Q：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="QQ" value="{{person.QQ}}"></td>
+                        <td height="45"><font color="#5A5858">手机号：</font>
+                            <input style="float:right;height:70%; width:60%;" type="text" name="phone" value="{{person.phone}}"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="41"><font color="#5A5858">现居地：</font>
+                            <input style="float:right;height:70%; width:85%;" type="text" name="placenow" value="{{person.placenow}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="41"><font color="#5A5858">故&nbsp;&nbsp;乡：</font>
+                            <input  style="float:right;height:70%; width:85%;" type="text" name="home" value="{{person.home}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="44"><font color="#5A5858">邮&nbsp;&nbsp;箱：</font>
+                            <input  style="float:right;height:70%; width:85%;" type="text" name="email" value="{{person.email}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="160" colspan="3"><font color="#5A5858">备注信息：</font><br>
+                            <textarea rows="9" style="font-size:20px; background:white; width:95%; margin-left:10px;padding-letf:0px;" name="tip">{{person.tip}}</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="41" colspan="3">
+                            <div class="but">
+                                <div style=" position:relative;top:52px; left:-40px;width:120px;">
+                                    <input class="button white" type="submit" value="保存" />
+                                </div>
+                                <div style="position:relative;top:18px; left:60px;width:120px;">
+                                    <input class="button blue" type="reset" value="重置" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+               </tbody>
+            </table>
+        </form>
+    </div>
+    </div>
+    <div class="returnview"><a href="/view" ></a></div>
+</body>
+</html>
